@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "TareaAngular": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TareaAngular"
+    }
+  },
+  "defaultProject": "TareaAngular",
+  "cli": {
+    "analytics": "299d48d0-9cc6-4f3f-a9b0-4d4c01c00d56"
+  }
 }
