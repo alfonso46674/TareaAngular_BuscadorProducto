@@ -1,1 +1,41 @@
-<p>producto works!</p>
+<h1>Buscar Producto</h1>
+<input type="text" [(ngModel)]="busqueda" (keydown.enter)="buscar()" >
+<a 
+    name="" 
+    id="" 
+    class="btn btn-primary" 
+    href="#" 
+    role="button"
+    (click)="buscar()"
+    >Buscar</a>
+
+    <div *ngIf="busqueda.length > 0">
+        <p>Buscando: {{busqueda}}</p>
+    </div>
+
+    <br>
+    <input type="checkbox" name="" id="" (change)="checkExistencia($event.target.checked)" >
+    <label for="">Solo en existencia </label>
+    <br>
+    <input type="checkbox" name="" id="" (change)="checkOrdenar($event.target.checked)">
+    <label for="">Ordenar por precio (mayor a menor)</label> 
+    <br>
+    <input type="checkbox" name="" id=""  [(ngModel)]="check"  (change)="checkMayorA($event.target.checked)"> 
+    <label for="">Resaltar existencia mayor a 3</label> 
+    
+
+    <div *ngIf="copiaProductos.length == 0 && busqueda != '' "class="alert alert-danger" role="alert">
+            <p>Ningún producto concuerda con la búsqueda</p>
+        </div>
+    
+    <div *ngFor="let producto of copiaProductos; let i = index">
+        <div [ngStyle]="{'background-color':  check==true && producto.existencia > 3?'green':'white'}">
+            <img src={{src}} alt="">
+            <h2>{{producto.nombre}}</h2>
+            <p>Precio (MXN): ${{producto.precio}}</p>
+            <p>Marca: {{producto.marca}}</p>
+            <p>Descripcion: {{producto.descripcion}}</p>
+            <p>Existencia: {{producto.existencia}}</p>
+        </div>
+    </div>
+    
